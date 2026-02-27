@@ -190,7 +190,7 @@
   @keyframes pulse { 0%,100%{text-shadow:0 0 20px var(--carmine),3px 3px 0 #3a0008} 50%{text-shadow:0 0 40px var(--carmine),0 0 60px rgba(150,0,24,0.4),3px 3px 0 #3a0008} }
   .hero-date {
     font-family:'Cormorant Garamond',serif; font-size:clamp(16px,3vw,22px);
-    color:var(--dusty-rose); letter-spacing:6px; margin-top:20px; text-align:center;
+    color:var(--dusty-rose); letter-spacing:2px; margin-top:20px; text-align:center;
   }
   .hero-location {
     font-family:'VT323',monospace; font-size:18px;
@@ -299,6 +299,17 @@
   .detail-icon { font-size:28px; display:block; margin-bottom:12px; }
   .detail-label { font-size:7px; color:var(--carmine); letter-spacing:3px; margin-bottom:10px; }
   .detail-value { font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--text-cream); line-height:1.7; }
+  .map-qr-wrap { margin-top:12px; text-align:center; }
+  .map-qr {
+    width:98px; height:98px; display:block; margin:0 auto 6px;
+    border:1px solid rgba(122,47,64,0.3);
+    background:#fff;
+    padding:4px;
+  }
+  .map-qr-label {
+    font-size:6px; letter-spacing:1.4px; color:var(--text-muted);
+    line-height:1.5;
+  }
   /* DRESS CODE */
   .dress-section { background:var(--surface); padding:40px 32px; margin:30px 0; }
   .dress-groups { display:flex; flex-direction:column; gap:40px; }
@@ -407,6 +418,11 @@
     padding:4px 20px; letter-spacing:4px; white-space:nowrap;
   }
   .rsvp-subtitle { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--text-muted); margin-bottom:30px; }
+  .rsvp-note {
+    font-family:'Cormorant Garamond',serif; font-size:18px;
+    color:var(--text-muted); line-height:1.55;
+    max-width:680px; margin:0 auto 18px;
+  }
   .rsvp-form { display:flex; flex-direction:column; gap:14px; max-width:480px; margin:0 auto 28px; }
   .pixel-input {
     background:var(--bg2); border:1px solid var(--rumba); border-bottom:3px solid var(--carmine);
@@ -472,7 +488,7 @@
   .particle { position:fixed; pointer-events:none; z-index:50; animation:particleUp 3s ease-out forwards; font-size:12px; }
   @keyframes particleUp { 0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1} 100%{transform:translateY(-260px) rotate(180deg) scale(0.2);opacity:0} }
   /* FOOTER */
-  footer { text-align:center; padding:50px 20px 40px; border-top:1px solid #2a1218; }
+  footer { text-align:center; padding:50px 20px 150px; border-top:1px solid #2a1218; }
   .footer-names { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:42px; color:var(--dusty-rose); margin-bottom:14px; }
   .footer-sub { font-size:7px; color:var(--text-muted); letter-spacing:3px; line-height:2.2; }
   /* MOBILE */
@@ -606,11 +622,14 @@
     }
     .players-grid{grid-template-columns:1fr;}
     .rsvp-box{padding:40px 20px;}
+    .rsvp-note{font-size:17px; line-height:1.5; margin-bottom:14px;}
     .story-screen{padding:28px 20px;}
     .dress-section{padding:28px 20px;}
     .story-text{font-size:18px; line-height:1.75;}
     .prenup-text{font-size:17px; line-height:1.7;}
     .detail-value{font-size:17px; line-height:1.6;}
+    .map-qr{width:90px; height:90px; margin-bottom:5px;}
+    .map-qr-label{font-size:6px; letter-spacing:1px;}
     .entourage-columns{grid-template-columns:1fr; gap:14px;}
     .entourage-list{text-align:center;}
     .entourage-headliners{grid-template-columns:1fr; gap:10px;}
@@ -679,6 +698,7 @@
       display:block;
     }
     #heartGame{height:150px;}
+    footer{padding:44px 16px 142px;}
   }
   @media(max-width:380px){
     .side-rsvp-link{
@@ -769,6 +789,10 @@
       font-size:15px;
       line-height:1.5;
     }
+    .rsvp-note{
+      font-size:15px;
+      line-height:1.45;
+    }
     .photobooth-head{
       font-size:6px;
       letter-spacing:1px;
@@ -779,6 +803,14 @@
     .gifts-text{
       font-size:16px;
       line-height:1.5;
+    }
+    .map-qr{
+      width:82px;
+      height:82px;
+    }
+    .map-qr-label{
+      font-size:5px;
+      letter-spacing:0.8px;
     }
     .time-unit{
       min-width:0;
@@ -795,6 +827,7 @@
       max-width:226px;
       gap:8px;
     }
+    footer{padding:40px 14px 132px;}
   }
   @media(min-width:601px) and (max-width:860px){
     .entourage-groups{grid-template-columns:1fr 1fr;}
@@ -836,7 +869,7 @@
     <div class="hero-name">Aaron</div>
     <span class="hero-amp">✦ & ✦</span>
     <div class="hero-name">Joyce</div>
-    <div class="hero-date">XVI · JULY · MMXXVI</div>
+    <div class="hero-date">July 16, 2026</div>
     <div class="hero-location">
       9:00 AM · DIOCESAN SHRINE OF SAINT PIO · ANTIPOLO
     </div>
@@ -888,7 +921,7 @@
           <div class="entourage-col-title">PARENTS OF THE GROOM</div>
           <div class="entourage-list">
             Mr. Ruben Asuncion Jr.<br>
-            Mrs. Mirasol Asuncion
+            Mrs. Mirasol Asuncion ✝
           </div>
         </div>
         <div>
@@ -911,7 +944,7 @@
             Mr. Raul Crisostomo<br>
             Mr. Carrel Dela Cruz<br>
             Mr. Romeo Dela Cruz<br>
-            Mr. Conrado Dimagalaliw<br>
+            Mr. Conrado Dimagmaliw<br>
             Mr. Jimmy Lauigan<br>
             Engr. Gerry Alameda Jr.
           </div>
@@ -977,7 +1010,19 @@
     <div class="detail-box"><span class="detail-icon">📅</span><div class="detail-label">DATE</div><div class="detail-value">July 16<br>2026<br>Thursday</div></div>
     <div class="detail-box"><span class="detail-icon">⛪</span><div class="detail-label">CEREMONY</div><div class="detail-value">9:00 AM<br>Diocesan Shrine and Parish<br>of Saint Pio of Pietrelcina</div></div>
     <div class="detail-box"><span class="detail-icon">🥂</span><div class="detail-label">RECEPTION</div><div class="detail-value">Venue Victoria<br>L. Sumulong Memorial Circle<br>25 Sen Taktak Rd, Antipolo, 1870 Rizal</div></div>
-    <div class="detail-box"><span class="detail-icon">📍</span><div class="detail-label">LOCATION</div><div class="detail-value">106 Sumulong Hwy<br>Antipolo, 1870 Rizal<br>Philippines</div></div>
+    <div class="detail-box">
+      <span class="detail-icon">📍</span>
+      <div class="detail-label">LOCATION</div>
+      <div class="detail-value">
+        106 Sumulong Hwy<br>Antipolo, 1870 Rizal<br>Philippines
+        <div class="map-qr-wrap">
+          <a href="https://www.google.com/maps/search/?api=1&query=Diocesan+Shrine+and+Parish+of+Saint+Pio+of+Pietrelcina,+106+Sumulong+Hwy,+Antipolo,+Rizal" target="_blank" rel="noopener noreferrer">
+            <img class="map-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDiocesan%2BShrine%2Band%2BParish%2Bof%2BSaint%2BPio%2Bof%2BPietrelcina%2C%2B106%2BSumulong%2BHwy%2C%2BAntipolo%2C%2BRizal" alt="QR code to Google Maps pin for the wedding location">
+          </a>
+          <div class="map-qr-label">SCAN FOR EXACT GOOGLE MAPS PIN</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1070,13 +1115,13 @@
 <!-- RSVP -->
 <div class="divider"><div class="divider-line"></div><div class="divider-icon">♥</div><div class="divider-line"></div></div>
 <div class="wrap" id="rsvp" style="margin-bottom:60px;">
-  <div class="section-head"><h2>CONFIRM ATTENDANCE</h2><p>Kindly reply by June 30, 2026</p></div>
+  <div class="section-head"><h2>CONFIRM ATTENDANCE</h2><p>Kindly RSVP on or before June 11, 2026</p></div>
   <div class="rsvp-box">
     <div class="rsvp-subtitle">We'd love to have you join us</div>
+    <div class="rsvp-note">Due to limited capacity, we kindly request your understanding that plus ones are not permitted unless specified on your invitation.</div>
     <div class="rsvp-form">
       <input type="text" class="pixel-input" id="rsvpName" placeholder="YOUR NAME..." maxlength="40"/>
-      <input type="text" class="pixel-input" id="rsvpGuests" placeholder="NUMBER OF GUESTS..." maxlength="2"/>
-      <input type="text" class="pixel-input" id="rsvpMsg" placeholder="A MESSAGE FOR THE COUPLE..." maxlength="120"/>
+      <input type="text" class="pixel-input" id="rsvpMsg" placeholder="A MESSAGE FOR THE COUPLE... (OPTIONAL)" maxlength="120"/>
     </div>
     <div class="btn-row">
       <button class="btn-yes" onclick="submitRSVP(true)">✓ JOYFULLY ACCEPTS</button>
@@ -1554,11 +1599,10 @@ async function pushRSVPToGoogleSheets(payload){
 
 function readRSVPForm(attending){
   const name=document.getElementById('rsvpName').value.trim();
-  const guests=document.getElementById('rsvpGuests').value.trim();
   const message=document.getElementById('rsvpMsg').value.trim();
   return {
     name,
-    guests,
+    guests:'',
     message,
     attending:attending?'ACCEPTED':'DECLINED',
     event_date:'2026-07-16',
@@ -1593,7 +1637,7 @@ async function submitRSVP(yes){
     fb.textContent+=' (SHEETS SYNC FAILED)';
   }
 
-  ['rsvpName','rsvpGuests','rsvpMsg'].forEach(id=>{document.getElementById(id).value='';});
+  ['rsvpName','rsvpMsg'].forEach(id=>{document.getElementById(id).value='';});
 }
 
 // KONAMI
