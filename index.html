@@ -880,7 +880,7 @@
 <!-- CHARACTERS -->
 <div class="divider"><div class="divider-line"></div><div class="divider-icon">♥</div><div class="divider-line"></div></div>
 <div class="wrap">
-  <div class="section-head"><h2>CHARACTER SELECT</h2><p>Aaron & Joyce</p></div>
+  <div class="section-head"><h2>CHARACTER SELECT</h2><p>Meet the Players</p></div>
   <div class="players-grid">
     <div class="player-card p1">
       <div class="player-tag">◄ PLAYER 1</div>
@@ -1009,7 +1009,19 @@
   <div class="details-grid">
     <div class="detail-box"><span class="detail-icon">📅</span><div class="detail-label">DATE</div><div class="detail-value">July 16<br>2026<br>Thursday</div></div>
     <div class="detail-box"><span class="detail-icon">⛪</span><div class="detail-label">CEREMONY</div><div class="detail-value">9:00 AM<br>Diocesan Shrine and Parish<br>of Saint Pio of Pietrelcina</div></div>
-    <div class="detail-box"><span class="detail-icon">🥂</span><div class="detail-label">RECEPTION</div><div class="detail-value">Venue Victoria<br>L. Sumulong Memorial Circle<br>25 Sen Taktak Rd, Antipolo, 1870 Rizal</div></div>
+    <div class="detail-box">
+      <span class="detail-icon">🥂</span>
+      <div class="detail-label">RECEPTION</div>
+      <div class="detail-value">
+        Venue Victoria<br>L. Sumulong Memorial Circle<br>25 Sen Taktak Rd, Antipolo, 1870 Rizal
+        <div class="map-qr-wrap">
+          <a href="https://www.google.com/maps/search/?api=1&query=Venue+Victoria,+L.+Sumulong+Memorial+Circle,+25+Sen+Taktak+Rd,+Antipolo,+Rizal" target="_blank" rel="noopener noreferrer">
+            <img class="map-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DVenue%2BVictoria%2C%2BL.%2BSumulong%2BMemorial%2BCircle%2C%2B25%2BSen%2BTaktak%2BRd%2C%2BAntipolo%2C%2BRizal" alt="QR code to Google Maps pin for the reception location">
+          </a>
+          <div class="map-qr-label">SCAN FOR RECEPTION MAP PIN</div>
+        </div>
+      </div>
+    </div>
     <div class="detail-box">
       <span class="detail-icon">📍</span>
       <div class="detail-label">LOCATION</div>
@@ -1118,9 +1130,10 @@
   <div class="section-head"><h2>CONFIRM ATTENDANCE</h2><p>Kindly RSVP on or before June 11, 2026</p></div>
   <div class="rsvp-box">
     <div class="rsvp-subtitle">We'd love to have you join us</div>
-    <div class="rsvp-note">Due to limited capacity, we kindly request your understanding that plus ones are not permitted unless specified on your invitation.</div>
+    <div class="rsvp-note">Due to limited capacity, plus ones are not permitted unless specified on your invitation. If your invite includes a plus one, please enter their full name for seat assignment.</div>
     <div class="rsvp-form">
       <input type="text" class="pixel-input" id="rsvpName" placeholder="YOUR NAME..." maxlength="40"/>
+      <input type="text" class="pixel-input" id="rsvpPlusOne" placeholder="PLUS ONE FULL NAME (IF ALLOCATED)..." maxlength="60"/>
       <input type="text" class="pixel-input" id="rsvpMsg" placeholder="A MESSAGE FOR THE COUPLE... (OPTIONAL)" maxlength="120"/>
     </div>
     <div class="btn-row">
@@ -1566,7 +1579,7 @@ function startGame(){
 }
 
 // RSVP
-const RSVP_GOOGLE_WEB_APP_URL='https://script.google.com/macros/s/AKfycbyKq8VglZwQIh_swrCRvf8Sue6N4V-NWB8iJADiKnf7cG7ML3GtCc1zG_NKrUyPiIqw/exec';
+const RSVP_GOOGLE_WEB_APP_URL='https://script.google.com/macros/s/AKfycbyUOHas67A8PcRliVouoi5q7a8g6UkhmJU4n9T-kUnmuYbs6g87_P8OCitJXDF6-XiX/exec';
 const yesLines=[
   '✦ ATTENDANCE CONFIRMED · SEE YOU ON THE DANCE FLOOR!',
   '✦ PLAYER ADDED TO GUEST LIST · +100 XP EARNED!',
@@ -1599,10 +1612,12 @@ async function pushRSVPToGoogleSheets(payload){
 
 function readRSVPForm(attending){
   const name=document.getElementById('rsvpName').value.trim();
+  const plusOneName=document.getElementById('rsvpPlusOne').value.trim();
   const message=document.getElementById('rsvpMsg').value.trim();
   return {
     name,
-    guests:'',
+    guests:plusOneName,
+    plus_one_name:plusOneName,
     message,
     attending:attending?'ACCEPTED':'DECLINED',
     event_date:'2026-07-16',
@@ -1637,7 +1652,7 @@ async function submitRSVP(yes){
     fb.textContent+=' (SHEETS SYNC FAILED)';
   }
 
-  ['rsvpName','rsvpMsg'].forEach(id=>{document.getElementById(id).value='';});
+  ['rsvpName','rsvpPlusOne','rsvpMsg'].forEach(id=>{document.getElementById(id).value='';});
 }
 
 // KONAMI
