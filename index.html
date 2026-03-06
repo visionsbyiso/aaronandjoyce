@@ -270,25 +270,45 @@
     font-size:8px; background:var(--bg2); color:var(--text-muted);
     padding:2px 12px; letter-spacing:2px; white-space:nowrap;
   }
-  .prenup-text { font-family:'VT323',monospace; font-size:19px; color:var(--navy); line-height:1.8; text-align:center; }
-  .prenup-sig { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; color:var(--text-muted); text-align:center; margin-top:12px; }
+  .prenup-text { font-family:'VT323',monospace; font-size:19px; color:var(--navy); line-height:1.65; text-align:center; }
+  .prenup-sig { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; color:var(--text-muted); text-align:center; margin-top:14px; }
   .entourage-columns { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px; }
   .entourage-col-title {
     font-size:8px; letter-spacing:3px; text-align:center; color:var(--dusty-rose);
     margin-bottom:10px; font-family:'Press Start 2P',monospace;
   }
-  .entourage-list { max-width:260px; margin:0 auto; text-align:left; line-height:1.75; }
-  .entourage-headliners { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:16px; }
+  .entourage-list { max-width:260px; margin:0 auto; text-align:center; line-height:1.6; }
+  .entourage-headliners { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
   .entourage-headliners .entourage-card {
-    border:1px solid rgba(170,139,177,0.25); background:rgba(122,47,64,0.14); padding:10px 12px;
+    border:1px solid rgba(170,139,177,0.25); background:rgba(122,47,64,0.14); padding:10px 10px;
   }
-  .entourage-groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+  .entourage-groups {
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;
+    max-width:700px; margin:0 auto;
+  }
   .entourage-group {
     border:1px solid rgba(170,139,177,0.25); background:rgba(122,47,64,0.14);
-    text-align:left; padding:12px;
+    text-align:center; padding:10px 10px;
   }
-  .entourage-group strong { display:block; text-align:center; margin-bottom:8px; }
-  .entourage-group div { margin-bottom:5px; }
+  .entourage-group strong { display:block; text-align:center; margin-bottom:6px; }
+  .entourage-group div { margin-bottom:4px; }
+  .entourage-group div:last-child { margin-bottom:0; }
+  .entourage-secondary {
+    border:1px solid rgba(170,139,177,0.25); background:rgba(122,47,64,0.14);
+    padding:10px 12px; margin-top:12px;
+  }
+  .entourage-secondary strong { display:block; text-align:center; margin-bottom:8px; }
+  .entourage-secondary-grid {
+    display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:start;
+  }
+  .entourage-secondary-list { text-align:center; line-height:1.6; }
+  .entourage-secondary-roles { text-align:center; line-height:1.6; color:var(--carmine); }
+  .entourage-flower {
+    border:1px solid rgba(170,139,177,0.25); background:rgba(122,47,64,0.14);
+    padding:10px 12px; margin:12px auto 0; max-width:420px;
+  }
+  .entourage-flower strong { display:block; text-align:center; margin-bottom:6px; }
+  .entourage-flower div { margin-bottom:4px; }
   /* DETAILS */
   .details-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:30px 0; }
   .detail-box {
@@ -635,6 +655,8 @@
     .entourage-headliners{grid-template-columns:1fr; gap:10px;}
     .entourage-groups{grid-template-columns:1fr;}
     .entourage-group{text-align:center;}
+    .entourage-secondary-grid{grid-template-columns:1fr; gap:6px;}
+    .entourage-secondary-list,.entourage-secondary-roles{text-align:center;}
     .photobooth-section{padding:24px 14px;}
     .photobooth-head{font-size:6px; letter-spacing:2px; margin-bottom:12px; line-height:1.6;}
     .photobooth-copy{font-size:16px; line-height:1.5; margin-bottom:14px;}
@@ -831,7 +853,6 @@
   }
   @media(min-width:601px) and (max-width:860px){
     .entourage-groups{grid-template-columns:1fr 1fr;}
-    .entourage-groups .entourage-group:last-child{grid-column:1 / -1; max-width:420px; margin:0 auto;}
     .booth-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   }
 </style>
@@ -901,7 +922,7 @@
       <div class="player-stats">
         <div class="stat-row"><span class="stat-label">LOVE</span><div class="stat-track"><div class="stat-fill" style="width:95%"></div></div></div>
         <div class="stat-row"><span class="stat-label">WISDOM</span><div class="stat-track"><div class="stat-fill" style="width:90%"></div></div></div>
-        <div class="stat-row"><span class="stat-label">MATCHA</span><div class="stat-track"><div class="stat-fill" style="width:92%"></div></div></div>
+        <div class="stat-row"><span class="stat-label">COFFEE</span><div class="stat-track"><div class="stat-fill" style="width:92%"></div></div></div>
         <div class="stat-row"><span class="stat-label">TIMING</span><div class="stat-track"><div class="stat-fill" style="width:85%"></div></div></div>
         <div style="margin-top:10px;font-size:13px;">CLASS · Lore Keeper<br>POWER · Perfect Timing</div>
       </div>
@@ -955,7 +976,7 @@
             Mrs. Jenny Dela Cruz<br>
             Mrs. Erminita Lalic<br>
             Mrs. Antoinette Gomultim<br>
-            Mrs. Madilyn Anguilo<br>
+            Mrs. Madilyn Anquilo<br>
             Mrs. Marilyn Lauigan<br>
             Mrs. Jasmin Alameda
           </div>
@@ -972,29 +993,43 @@
           <div class="entourage-group">
             <strong>Groomsmen</strong>
             <div>Mr. Niel Adriano</div>
-            <div>Mr. Arwin San Juan</div>
-            <div>Mr. Michael Caoagas</div>
-            <div>Mr. Syron Catanyag</div>
-            <div>Mr. Niño Pastores</div>
-            <div>Mr. Lester Guda</div>
             <div>Mr. Alexander Sarmiento</div>
+            <div>Mr. Lester Guda</div>
+            <div>Mr. Niño Pastores</div>
           </div>
           <div class="entourage-group">
-            <strong>Bridesmaids</strong>
+            <strong>Bridesmaid</strong>
             <div>Ms. Jelica Estacio</div>
             <div>Dr. Regina Lapuz</div>
-            <div>Ms. Richele Armia</div>
-            <div>Ms. Keziah Cueto</div>
-            <div>Ms. Abby Bacerra</div>
-            <div>Ms. Christine Dotillos</div>
             <div>Ms. Keana Rivera</div>
+            <div>Ms. Keziah Cueto</div>
           </div>
-          <div class="entourage-group">
-            <strong>Flower Girls</strong>
-            <div>Samantha Denise De Asis</div>
-            <div>Mira Khaela Dela Cruz</div>
-            <div>Ellie Gharnette Asuncion</div>
+        </div>
+        <div class="entourage-secondary">
+          <strong>Secondary Sponsors</strong>
+          <div class="entourage-secondary-grid">
+            <div class="entourage-secondary-list">
+              Mr. Syron Catanyag<br>
+              Mr. Arwin San Juan<br>
+              Mr. Michael Caoagas
+            </div>
+            <div class="entourage-secondary-roles">
+              CANDLE<br>
+              VEIL<br>
+              CORD
+            </div>
+            <div class="entourage-secondary-list">
+              Ms. Christine Dotillos<br>
+              Ms. Abby Bacerra<br>
+              Ms. Richele Armia
+            </div>
           </div>
+        </div>
+        <div class="entourage-flower">
+          <strong>Flower Girls</strong>
+          <div>Ellie Gharnette Asuncion</div>
+          <div>Mira Khaela Dela Cruz</div>
+          <div>Samantha Denise De Asis</div>
         </div>
       </div>
       <div class="prenup-sig">Aaron & Joyce</div>
@@ -1010,19 +1045,6 @@
     <div class="detail-box"><span class="detail-icon">📅</span><div class="detail-label">DATE</div><div class="detail-value">July 16<br>2026<br>Thursday</div></div>
     <div class="detail-box"><span class="detail-icon">⛪</span><div class="detail-label">CEREMONY</div><div class="detail-value">9:00 AM<br>Diocesan Shrine and Parish<br>of Saint Pio of Pietrelcina</div></div>
     <div class="detail-box">
-      <span class="detail-icon">🥂</span>
-      <div class="detail-label">RECEPTION</div>
-      <div class="detail-value">
-        Venue Victoria<br>L. Sumulong Memorial Circle<br>25 Sen Taktak Rd, Antipolo, 1870 Rizal
-        <div class="map-qr-wrap">
-          <a href="https://www.google.com/maps/search/?api=1&query=Venue+Victoria,+L.+Sumulong+Memorial+Circle,+25+Sen+Taktak+Rd,+Antipolo,+Rizal" target="_blank" rel="noopener noreferrer">
-            <img class="map-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DVenue%2BVictoria%2C%2BL.%2BSumulong%2BMemorial%2BCircle%2C%2B25%2BSen%2BTaktak%2BRd%2C%2BAntipolo%2C%2BRizal" alt="QR code to Google Maps pin for the reception location">
-          </a>
-          <div class="map-qr-label">SCAN FOR RECEPTION MAP PIN</div>
-        </div>
-      </div>
-    </div>
-    <div class="detail-box">
       <span class="detail-icon">📍</span>
       <div class="detail-label">LOCATION</div>
       <div class="detail-value">
@@ -1032,6 +1054,19 @@
             <img class="map-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDiocesan%2BShrine%2Band%2BParish%2Bof%2BSaint%2BPio%2Bof%2BPietrelcina%2C%2B106%2BSumulong%2BHwy%2C%2BAntipolo%2C%2BRizal" alt="QR code to Google Maps pin for the wedding location">
           </a>
           <div class="map-qr-label">SCAN FOR EXACT GOOGLE MAPS PIN</div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-box">
+      <span class="detail-icon">🥂</span>
+      <div class="detail-label">RECEPTION</div>
+      <div class="detail-value">
+        Venue Victoria<br>L. Sumulong Memorial Circle<br>25 Sen Taktak Rd, Antipolo, 1870 Rizal
+        <div class="map-qr-wrap">
+          <a href="https://www.google.com/maps/search/?api=1&query=Venue+Victoria,+L.+Sumulong+Memorial+Circle,+25+Sen+Taktak+Rd,+Antipolo,+Rizal" target="_blank" rel="noopener noreferrer">
+            <img class="map-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DVenue%2BVictoria%2C%2BL.%2BSumulong%2BMemorial%2BCircle%2C%2B25%2BSen%2BTaktak%2BRd%2C%2BAntipolo%2C%2BRizal" alt="QR code to Google Maps pin for the reception location">
+          </a>
+          <div class="map-qr-label">SCAN FOR RECEPTION MAP PIN</div>
         </div>
       </div>
     </div>
