@@ -62,7 +62,7 @@
     font-family: 'Press Start 2P', monospace;
     color: var(--text-cream);
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
   }
   .church-backdrop {
     position:fixed;
@@ -81,6 +81,7 @@
     image-rendering:pixelated;
   }
   #cursor {
+    display:none;
     width:12px; height:12px;
     background: var(--carmine);
     position:fixed; pointer-events:none; z-index:9999;
@@ -1185,7 +1186,7 @@
     <div class="hero-name">Joyce</div>
     <div class="hero-date">July 16, 2026</div>
     <div class="hero-location">
-      9:00 AM<br>
+      9:15 AM<br>
       Diocesan Shrine and Parish of Saint Pio of Pietrelcina<br>
       Antipolo, Rizal
     </div>
@@ -1338,7 +1339,7 @@
   <div class="section-head"><h2>WEDDING DETAILS</h2><p>Where & When</p></div>
   <div class="details-grid">
     <div class="detail-box"><span class="detail-icon">📅</span><div class="detail-label">DATE</div><div class="detail-value">July 16<br>2026<br>Thursday</div></div>
-    <div class="detail-box"><span class="detail-icon">⛪</span><div class="detail-label">CEREMONY</div><div class="detail-value">9:00 AM<br>Diocesan Shrine and Parish<br>of Saint Pio of Pietrelcina</div></div>
+    <div class="detail-box"><span class="detail-icon">⛪</span><div class="detail-label">CEREMONY</div><div class="detail-value">9:15 AM<br>Diocesan Shrine and Parish<br>of Saint Pio of Pietrelcina</div></div>
     <div class="detail-box">
       <span class="detail-icon">📍</span>
       <div class="detail-label">LOCATION</div>
@@ -1845,7 +1846,7 @@ function spawnParticle(x,y){
 }
 
 // COUNTDOWN
-const wedding=new Date('2026-07-16T09:00:00+08:00');
+const wedding=new Date('2026-07-16T09:15:00+08:00');
 function tick(){
   const diff=Math.max(0,wedding-new Date());
   const d=Math.floor(diff/86400000);
@@ -1974,7 +1975,7 @@ function readRSVPForm(attending){
     message,
     attending:attending?'ACCEPTED':'DECLINED',
     event_date:'2026-07-16',
-    event_time:'09:00 AM',
+    event_time:'09:15 AM',
     event_timezone:'Asia/Manila',
     submitted_at:new Date().toISOString(),
     page:window.location.pathname
