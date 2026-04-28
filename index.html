@@ -628,6 +628,14 @@
     color:var(--text-muted); line-height:1.55;
     max-width:680px; margin:0 auto 18px;
   }
+  .rsvp-ceremony-note {
+    font-family:'Cormorant Garamond',serif; font-size:17px;
+    color:var(--navy); line-height:1.55;
+    max-width:680px; margin:0 auto 18px;
+    background:rgba(255,249,244,0.72);
+    border:1px solid rgba(122,47,64,0.24);
+    padding:10px 14px;
+  }
   .rsvp-form { display:flex; flex-direction:column; gap:14px; max-width:480px; margin:0 auto 28px; }
   .pixel-input {
     background:var(--bg2); border:1px solid var(--rumba); border-bottom:3px solid var(--carmine);
@@ -856,6 +864,7 @@
     .players-grid{grid-template-columns:1fr;}
     .rsvp-box{padding:40px 20px;}
     .rsvp-note{font-size:17px; line-height:1.5; margin-bottom:14px;}
+    .rsvp-ceremony-note{font-size:16px; line-height:1.45; margin-bottom:14px; padding:9px 11px;}
     .story-screen{padding:28px 20px;}
     .dress-section{padding:28px 20px;}
     .story-text{font-size:18px; line-height:1.75;}
@@ -879,13 +888,20 @@
     .walk-sprite{width:34px; height:34px;}
     .couple-link{font-size:13px; bottom:14px;}
     .side-rsvp-link{
-      right:10px; top:auto; bottom:124px;
+      left:12px; right:12px; top:auto;
+      bottom:calc(10px + env(safe-area-inset-bottom));
       transform:none;
+      display:flex; align-items:center; justify-content:center;
       font-size:12px; letter-spacing:1px;
-      padding:6px 10px;
-      opacity:0.9;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,249,244,0.95);
+      border:1px solid rgba(122,47,64,0.34);
+      box-shadow:0 10px 18px rgba(40,53,81,0.14);
+      z-index:380;
+      opacity:0.98;
     }
-    .side-rsvp-link span{margin-right:5px;}
+    .side-rsvp-link span{margin-right:6px;}
     .side-rsvp-link:hover,
     .side-rsvp-link:focus-visible{transform:translateY(-2px);}
     .pixel-church-wrap{width:180px; bottom:0;}
@@ -935,9 +951,11 @@
   }
   @media(max-width:380px){
     .side-rsvp-link{
-      bottom:112px;
+      left:10px; right:10px;
+      bottom:calc(8px + env(safe-area-inset-bottom));
       font-size:11px;
-      padding:5px 9px;
+      padding:9px 10px;
+      letter-spacing:0.8px;
     }
     .hud{
       grid-template-columns:minmax(48px,auto) 1fr minmax(34px,auto);
@@ -1039,6 +1057,11 @@
     .rsvp-note{
       font-size:15px;
       line-height:1.45;
+    }
+    .rsvp-ceremony-note{
+      font-size:14px;
+      line-height:1.4;
+      padding:8px 10px;
     }
     .photobooth-head{
       font-size:6px;
@@ -1435,6 +1458,7 @@
       <input type="text" class="pixel-input" id="rsvpPlusOne" placeholder="PLUS ONE FULL NAME (IF ALLOCATED)..." maxlength="60"/>
       <input type="text" class="pixel-input" id="rsvpMsg" placeholder="A MESSAGE FOR THE COUPLE... (OPTIONAL)" maxlength="120"/>
     </div>
+    <div class="rsvp-ceremony-note">We invite you to be fully present with us, so please put your phones in silent mode during the ceremony.</div>
     <div class="btn-row">
       <button class="btn-yes" onclick="submitRSVP(true)">✓ JOYFULLY ACCEPTS</button>
       <button class="btn-no" onclick="submitRSVP(false)">✕ REGRETFULLY DECLINES</button>
