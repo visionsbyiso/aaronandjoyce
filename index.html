@@ -335,6 +335,17 @@
     line-height:1.5; text-align:center;
     max-width:620px; margin-left:auto; margin-right:auto;
   }
+  .hero-vow {
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(17px,2.8vw,24px);
+    line-height:1.6;
+    color:rgba(122,47,64,0.92);
+    max-width:720px;
+    margin:20px auto 0;
+    text-align:center;
+    text-wrap:balance;
+  }
   .scroll-hint {
     position:absolute; bottom:80px; left:50%; transform:translateX(-50%);
     font-family:'VT323',monospace; font-size:16px;
@@ -343,7 +354,26 @@
   }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
   /* LAYOUT */
-  .wrap { max-width:900px; margin:0 auto; padding:0 24px; }
+  .wrap { max-width:900px; margin:0 auto; padding:0 24px; position:relative; isolation:isolate; }
+  .wrap::before {
+    content:"A+J   A+J   A+J\A A+J   A+J   A+J\A A+J   A+J   A+J";
+    white-space:pre;
+    position:absolute;
+    inset:14px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(34px,6vw,52px);
+    letter-spacing:0.38em;
+    line-height:2;
+    color:rgba(40,53,81,0.045);
+    pointer-events:none;
+    z-index:0;
+    transform:rotate(-10deg);
+  }
+  .wrap > * { position:relative; z-index:1; }
   .divider {
     display:flex; align-items:center; gap:16px;
     margin:60px auto; max-width:900px; padding:0 24px;
@@ -793,6 +823,21 @@
       margin-top:8px;
       max-width:300px;
     }
+    .hero-vow{
+      font-size:16px;
+      line-height:1.52;
+      margin-top:12px;
+      max-width:310px;
+      padding:0 2px;
+    }
+    .wrap::before{
+      inset:10px 16px;
+      font-size:clamp(23px,7vw,33px);
+      letter-spacing:0.24em;
+      line-height:2.15;
+      color:rgba(40,53,81,0.03);
+      transform:rotate(-8deg);
+    }
     .scroll-hint{
       font-size:12px;
       letter-spacing:1px;
@@ -946,6 +991,20 @@
       letter-spacing:0.7px;
       line-height:1.4;
       max-width:266px;
+    }
+    .hero-vow{
+      font-size:15px;
+      line-height:1.46;
+      max-width:268px;
+      margin-top:10px;
+    }
+    .wrap::before{
+      inset:8px 12px;
+      font-size:20px;
+      letter-spacing:0.18em;
+      line-height:2.3;
+      color:rgba(40,53,81,0.024);
+      transform:rotate(-7deg);
     }
     .scroll-hint{
       font-size:11px;
@@ -1101,6 +1160,7 @@
       Diocesan Shrine and Parish of Saint Pio of Pietrelcina<br>
       Antipolo, Rizal
     </div>
+    <p class="hero-vow">By God’s grace, we found home in each other — and we cannot wait to celebrate this new chapter with you.</p>
   </div>
   <div class="scroll-hint">▼ SCROLL DOWN TO CONTINUE ▼</div>
 </section>
@@ -1108,7 +1168,7 @@
 <!-- CHARACTERS -->
 <div class="divider"><div class="divider-line"></div><div class="divider-icon">♥</div><div class="divider-line"></div></div>
 <div class="wrap">
-  <div class="section-head"><h2>CHARACTER SELECT</h2><p>Meet the Players</p></div>
+  <div class="section-head"><h2>CHARACTER SELECT</h2><p></p></div>
   <div class="players-grid">
     <div class="player-card p1">
       <div class="player-tag">◄ PLAYER 1</div>
@@ -1129,7 +1189,7 @@
       <div class="player-stats">
         <div class="stat-row"><span class="stat-label">LOVE</span><div class="stat-track"><div class="stat-fill" style="width:95%"></div></div></div>
         <div class="stat-row"><span class="stat-label">WISDOM</span><div class="stat-track"><div class="stat-fill" style="width:90%"></div></div></div>
-        <div class="stat-row"><span class="stat-label">COFFEE</span><div class="stat-track"><div class="stat-fill" style="width:92%"></div></div></div>
+        <div class="stat-row"><span class="stat-label">MATCHA</span><div class="stat-track"><div class="stat-fill" style="width:92%"></div></div></div>
         <div class="stat-row"><span class="stat-label">TIMING</span><div class="stat-track"><div class="stat-fill" style="width:85%"></div></div></div>
         <div style="margin-top:10px;font-size:13px;">CLASS · Lore Keeper<br>POWER · Perfect Timing</div>
       </div>
