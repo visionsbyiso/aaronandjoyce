@@ -151,15 +151,15 @@
     justify-content: center;
     padding: 24px;
     background:
-      radial-gradient(ellipse 120% 80% at 50% 38%, rgba(150, 0, 24, 0.12) 0%, transparent 55%),
-      radial-gradient(ellipse at center, rgba(40, 53, 81, 0.78) 0%, rgba(24, 28, 40, 0.96) 100%);
+      radial-gradient(ellipse at center, rgba(40, 53, 81, 0.22) 0%, rgba(40, 53, 81, 0.06) 52%, transparent 72%),
+      radial-gradient(ellipse 130% 85% at 50% 36%, rgba(255, 252, 249, 0.98) 0%, rgba(247, 236, 227, 0.94) 45%, rgba(238, 226, 216, 0.96) 100%);
     transition: opacity 0.35s ease, visibility 0.35s ease;
   }
   .invite-splash__scanlines {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, rgba(241, 221, 207, 0.04) 3px, rgba(241, 221, 207, 0.04) 4px);
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, rgba(40, 53, 81, 0.025) 3px, rgba(40, 53, 81, 0.025) 4px);
     z-index: 0;
   }
   .invite-splash__inner {
@@ -168,12 +168,14 @@
     text-align: center;
     max-width: 520px;
     padding: clamp(28px, 6vw, 44px) clamp(20px, 5vw, 36px);
-    border: 2px solid rgba(150, 0, 24, 0.45);
+    border: 2px solid rgba(150, 0, 24, 0.28);
     box-shadow:
-      0 0 0 1px rgba(255, 249, 244, 0.08),
-      0 18px 48px rgba(0, 0, 0, 0.35),
-      inset 0 0 60px rgba(150, 0, 24, 0.06);
-    background: rgba(40, 53, 81, 0.55);
+      0 0 0 1px rgba(255, 255, 255, 0.65),
+      0 18px 44px rgba(40, 53, 81, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    background: rgba(255, 249, 244, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   .invite-splash__label {
     font-size: clamp(7px, 1.8vw, 8px);
@@ -664,6 +666,19 @@
   footer { text-align:center; padding:50px 20px 150px; border-top:1px solid #2a1218; }
   .footer-names { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:42px; color:var(--dusty-rose); margin-bottom:14px; }
   .footer-sub { font-size:7px; color:var(--text-muted); letter-spacing:3px; line-height:2.2; }
+  .footer-credit {
+    margin-top:28px;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(12px,2.8vw,15px);
+    color:var(--text-muted);
+    letter-spacing:0.08em;
+    line-height:1.6;
+  }
+  .footer-credit-brand {
+    color:var(--navy);
+    font-style:italic;
+  }
   /* MOBILE */
   @media(max-width:600px){
     body{
@@ -1301,7 +1316,7 @@
   <div class="section-head"><h2>TIMEZONE PHOTOBOOTH</h2><p>Prenup Moments We Love</p></div>
   <div class="photobooth-section">
     <div class="photobooth-head">FROM OUR PRENUP SHOOT CONCEPTS TO OUR FAVORITE CANDID FRAMES</div>
-    <div class="photobooth-copy">Inspired by arcade photobooth prints — playful, romantic, and a little nostalgic. Add six images as assets/prenup-01.jpg through prenup-06.jpg; until then, placeholders appear below.</div>
+    <div class="photobooth-copy">Styled like a classic arcade photo strip — playful, romantic, and a little nostalgic. Here are some of our favorite frames together.</div>
     <div class="booth-print">
       <div class="booth-print-grid">
         <div class="booth-print-cell"><img src="assets/prenup-01.jpg" alt="Prenup photo 1" width="480" height="640" loading="lazy" data-fallback="https://picsum.photos/seed/aaronjoyce-booth-1/480/640" onerror="var f=this.getAttribute('data-fallback');if(f){this.removeAttribute('data-fallback');this.src=f;}"></div>
@@ -1385,6 +1400,7 @@
     JULY 16, 2026 · DIOCESAN SHRINE AND PARISH OF SAINT PIO OF PIETRELCINA · ANTIPOLO, RIZAL<br>
     RECEPTION AT VENUE VICTORIA
   </div>
+  <p class="footer-credit">Made with love by <span class="footer-credit-brand">Visions by ISO</span></p>
 </footer>
 
 <script>
